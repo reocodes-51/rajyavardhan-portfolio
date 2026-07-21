@@ -77,7 +77,7 @@ export default function Contact() {
 
         {/* Content */}
 
-        <div className="mt-20 grid gap-10 lg:grid-cols-2">
+       <div className="mt-20">
 
                       {/* Left Side */}
 
@@ -86,7 +86,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="mx-auto max-w-3xl space-y-6 text-center"
           >
             <h3 className="text-3xl font-bold text-white">
               Get In Touch
@@ -99,7 +99,7 @@ export default function Contact() {
               I'd love to connect!
             </p>
 
-            <div className="space-y-5">
+            <div className="mx-auto w-full max-w-3xl space-y-6">
 
               {contactInfo.map((item) => {
                 const Icon = item.icon;
@@ -110,32 +110,29 @@ export default function Contact() {
                     href={item.link}
                     target={item.link.startsWith("http") ? "_blank" : "_self"}
                     rel="noopener noreferrer"
-                    className="flex items-center gap-5 rounded-2xl border border-white/10 bg-[#17181C] p-5 transition-all duration-300 hover:border-blue-500/40 hover:translate-x-2"
-                  >
-                    <div className="rounded-xl bg-blue-500/10 p-3">
-                      <Icon
-                        size={22}
-                        className="text-blue-400"
-                      />
+                    className="flex items-center gap-6 rounded-2xl border border-white/10 bg-[#17181C] px-6 py-5  transition-all duration-300 hover:border-blue-500/40 hover:-translate-y-1"
+                    >
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-500/10">
+                        <Icon size={26} className="text-blue-400" />
                     </div>
 
-                    <div>
-                      <p className="text-sm text-zinc-500">
+                    <div className="flex flex-col items-start justify-center">
+                    <p className="text-sm font-medium text-zinc-400">
                         {item.title}
-                      </p>
+                    </p>
 
-                      <p className="font-medium text-white">
+                    <p className="mt-1 text-lg font-semibold text-white break-all">
                         {item.value}
-                      </p>
+                    </p>
                     </div>
-                  </a>
-                );
-              })}
+                    </a>
+                                    );
+                                })}
 
             </div>
 
             <a
-              href="/resume.pdf"
+              href="/resume/resume.pdf"
               download
               className="mt-8 inline-flex items-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-semibold text-white transition hover:bg-blue-700"
             >
@@ -147,69 +144,7 @@ export default function Contact() {
 
           {/* Right Side */}
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl border border-white/10 bg-[#17181C] p-8"
-          >
-
-            <form className="space-y-6">
-
-              <div>
-
-                <label className="mb-2 block text-sm text-zinc-400">
-                  Full Name
-                </label>
-
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  className="w-full rounded-xl border border-white/10 bg-[#101112] px-4 py-3 text-white outline-none transition focus:border-blue-500"
-                />
-
-              </div>
-
-              <div>
-
-                <label className="mb-2 block text-sm text-zinc-400">
-                  Email Address
-                </label>
-
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full rounded-xl border border-white/10 bg-[#101112] px-4 py-3 text-white outline-none transition focus:border-blue-500"
-                />
-
-              </div>
-
-              <div>
-
-                <label className="mb-2 block text-sm text-zinc-400">
-                  Message
-                </label>
-
-                <textarea
-                  rows={6}
-                  placeholder="Write your message..."
-                  className="w-full rounded-xl border border-white/10 bg-[#101112] px-4 py-3 text-white outline-none transition focus:border-blue-500"
-                />
-
-                              </div>
-
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-blue-600 px-6 py-4 font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30"
-              >
-                <Send size={20} />
-                Send Message
-              </button>
-
-            </form>
-
-          </motion.div>
+          
 
         </div>
 
