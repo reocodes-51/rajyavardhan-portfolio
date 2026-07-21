@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
 
-      {/* Background Glow */}
+      {/* Background Blur */}
       <div className="absolute right-[-220px] top-1/2 h-[700px] w-[700px] -translate-y-1/2 rounded-full bg-blue-600/10 blur-[140px]" />
 
       <div className="absolute left-[-180px] bottom-[-150px] h-[350px] w-[350px] rounded-full bg-cyan-500/5 blur-[120px]" />
@@ -17,9 +19,16 @@ export default function Hero() {
 
         {/* LEFT */}
 
-        <div className="max-w-2xl">
-
-          <p className="mb-5 text-lg font-medium text-blue-500">
+        <motion.div
+          className="max-w-2xl"
+          initial={{ opacity: 0, x: -70 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+        >
+          <p className="mb-6 text-lg font-medium text-blue-500">
             Hi, I'm
           </p>
 
@@ -34,11 +43,28 @@ export default function Hero() {
             Rathore
           </h1>
 
-          <p className="mt-10 text-2xl font-semibold text-zinc-300">
-            Building impactful software with AI,
-            Full Stack Development and
-            Competitive Programming.
-          </p>
+          {/* Typing Animation */}
+
+          <div className="mt-10 text-3xl font-bold lg:text-4xl">
+
+            <TypeAnimation
+              sequence={[
+                "Full Stack Developer",
+                2000,
+                "AI Enthusiast",
+                2000,
+                "Competitive Programmer",
+                2000,
+                "Open Source Learner",
+                2000,
+              ]}
+              wrapper="span"
+              speed={45}
+              repeat={Infinity}
+              className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent"
+            />
+
+          </div>
 
           <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400">
             Electronics and Communication Engineering student at
@@ -53,18 +79,20 @@ export default function Hero() {
 
             <Button
               className="
-              rounded-xl
-              bg-gradient-to-r
-              from-blue-600
-              to-cyan-500
-              px-7
-              py-6
-              text-white
-              transition-all
-              duration-300
-              hover:scale-105
-              hover:shadow-lg
-              hover:shadow-blue-500/30
+                rounded-xl
+                bg-gradient-to-r
+                from-blue-600
+                to-cyan-500
+                px-7
+                py-6
+                text-white
+                shadow-lg
+                shadow-blue-600/20
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:scale-105
+                hover:shadow-blue-500/40
               "
             >
               View Projects →
@@ -78,15 +106,16 @@ export default function Hero() {
               <Button
                 variant="outline"
                 className="
-                rounded-xl
-                border-zinc-700
-                px-7
-                py-6
-                text-zinc-300
-                transition-all
-                duration-300
-                hover:border-blue-500
-                hover:bg-zinc-900
+                  rounded-xl
+                  border-zinc-700
+                  px-7
+                  py-6
+                  text-zinc-300
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-blue-500
+                  hover:bg-zinc-900
                 "
               >
                 Download Resume
@@ -95,56 +124,88 @@ export default function Hero() {
 
           </div>
 
-          {/* Socials */}
+          {/* Social Links */}
 
-          <div className="mt-12 flex items-center gap-6">
+          <div className="mt-12 flex items-center gap-7">
 
             <Link
               href="https://github.com/reocodes-51"
               target="_blank"
             >
-              <FaGithub className="text-3xl text-zinc-400 transition-all duration-300 hover:-translate-y-1 hover:text-white" />
+              <FaGithub className="text-3xl text-zinc-400 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:text-white" />
             </Link>
 
             <Link
               href="https://www.linkedin.com/in/rajyavardhan-singh-rathore"
               target="_blank"
             >
-              <FaLinkedin className="text-3xl text-zinc-400 transition-all duration-300 hover:-translate-y-1 hover:text-white" />
+              <FaLinkedin className="text-3xl text-zinc-400 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:text-white" />
             </Link>
 
           </div>
 
-        </div>
+        </motion.div>
 
         {/* RIGHT */}
+        {/* RIGHT */}
 
-        <div className="mt-20 lg:mt-0">
+<motion.div
+  className="mt-20 lg:mt-0"
+  initial={{ opacity: 0, x: 70 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{
+    duration: 0.8,
+    delay: 0.2,
+    ease: "easeOut",
+  }}
+>
+  <motion.div
+    animate={{
+      y: [0, -12, 0],
+    }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="relative flex h-[430px] w-[430px] items-center justify-center"
+  >
+    {/* Glow */}
+    <div className="absolute h-full w-full rounded-full bg-blue-600/15 blur-[110px]" />
 
-          <div className="relative flex h-[430px] w-[430px] items-center justify-center">
+    {/* Outer Circle */}
+    <div className="absolute h-[390px] w-[390px] rounded-full border border-zinc-700 bg-[#17181C]" />
 
-            {/* Glow */}
+    {/* Inner Circle */}
+    <div className="relative flex h-[360px] w-[360px] items-center justify-center rounded-full border border-zinc-700 bg-[#17181C] text-center text-xl font-medium text-zinc-500">
+      Profile Image
+    </div>
+  </motion.div>
+</motion.div>
 
-            <div className="absolute h-full w-full rounded-full bg-blue-600/15 blur-[110px]" />
+</div>
 
-            {/* Outer Circle */}
+{/* Scroll Indicator */}
 
-            <div className="absolute h-[390px] w-[390px] rounded-full border border-zinc-700 bg-[#17181C]" />
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{
+    opacity: 1,
+    y: [0, 10, 0],
+  }}
+  transition={{
+    delay: 1.5,
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute bottom-8 left-1/2 -translate-x-1/2"
+>
+  <div className="flex h-12 w-7 justify-center rounded-full border border-zinc-700">
+    <div className="mt-2 h-2 w-2 rounded-full bg-blue-500" />
+  </div>
+</motion.div>
 
-            {/* Inner Circle */}
-
-            <div className="relative flex h-[360px] w-[360px] items-center justify-center rounded-full border border-zinc-700 bg-[#17181C] text-xl font-medium text-zinc-500">
-
-              Profile Image
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+</section>
   );
 }
