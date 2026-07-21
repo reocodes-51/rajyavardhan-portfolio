@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -72,6 +73,11 @@ export default function Hero() {
             applications, AI-powered products, and solving challenging
             algorithmic problems.
           </p>
+
+          <div className="mt-4 flex items-center gap-2 text-zinc-400">
+            <span>📍</span>
+            <span>Jabalpur, India</span>
+            </div>
 
           {/* Buttons */}
 
@@ -147,7 +153,7 @@ export default function Hero() {
         </motion.div>
 
         {/* RIGHT */}
-        {/* RIGHT */}
+
 
 <motion.div
   className="mt-20 lg:mt-0"
@@ -168,18 +174,46 @@ export default function Hero() {
       repeat: Infinity,
       ease: "easeInOut",
     }}
-    className="relative flex h-[430px] w-[430px] items-center justify-center"
-  >
-    {/* Glow */}
-    <div className="absolute h-full w-full rounded-full bg-blue-600/15 blur-[110px]" />
+    >
+<div className="relative flex h-[430px] w-[430px] items-center justify-center">
 
-    {/* Outer Circle */}
-    <div className="absolute h-[390px] w-[390px] rounded-full border border-zinc-700 bg-[#17181C]" />
+  {/* Glow */}
+  <div className="absolute h-full w-full rounded-full bg-gradient-to-r from-blue-600/10 to-cyan-500/10 blur-[110px]" />
 
-    {/* Inner Circle */}
-    <div className="relative flex h-[360px] w-[360px] items-center justify-center rounded-full border border-zinc-700 bg-[#17181C] text-center text-xl font-medium text-zinc-500">
-      Profile Image
-    </div>
+  {/* Rotating Ring */}
+  <motion.div
+    animate={{ rotate: 360 }}
+    transition={{
+      duration: 30,
+      repeat: Infinity,
+      ease: "linear",
+    }}
+    className="absolute h-[410px] w-[410px] rounded-full border border-white/15"
+  />
+
+  {/* Outer Circle */}
+  <div className="absolute h-[380px] w-[380px] rounded-full border border-white/15" />
+
+  {/* Profile Image */}
+  <div className="relative h-[380px] w-[380px] overflow-hidden rounded-full border border-zinc-700 bg-[#17181C]">
+    <Image
+      src="/images/profile.png"
+      alt="Rajyavardhan Singh Rathore"
+      fill
+      priority
+      className="object-cover"
+    />
+  </div>
+
+  {/* Availability Badge
+  <div className="absolute bottom-6 right-0 flex items-center gap-2 rounded-full border border-zinc-700 bg-[#17181C] px-4 py-2 shadow-lg">
+    <span className="h-3 w-3 rounded-full bg-green-500" />
+    <span className="text-sm text-zinc-300">
+      Available for Opportunities
+    </span>
+  </div> */}
+
+</div>
   </motion.div>
 </motion.div>
 
