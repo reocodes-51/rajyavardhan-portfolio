@@ -15,20 +15,27 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/40 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[#101112]/70 backdrop-blur-2xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
+
         {/* Logo */}
-        <Link href="/" className="text-sm font-medium transition-all duration-300 hover:text-blue-500 hover:-translate-y-0.5">
-          Rajyavardhan<span className="text-blue-500">.</span>
+        <Link
+          href="/"
+          className="text-lg font-semibold tracking-tight text-white transition duration-300 hover:text-zinc-300"
+        >
+          Rajyavardhan
+          <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+            .
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm transition hover:text-blue-400"
+              className="relative text-[15px] font-medium text-zinc-400 transition-all duration-300 hover:text-white after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-blue-500 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.name}
             </a>
@@ -36,35 +43,54 @@ export default function Navbar() {
         </nav>
 
         {/* Right Side */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden items-center gap-5 md:flex">
+
           <Link
             href="https://github.com/reocodes-51"
             target="_blank"
           >
-            <FaGithub className="h-5 w-5 transition-all duration-300 hover:text-blue-500 hover:scale-110" />
+            <FaGithub className="text-xl text-zinc-400 transition-all duration-300 hover:scale-110 hover:text-white" />
           </Link>
 
           <Link
             href="https://www.linkedin.com/in/rajyavardhan-singh-rathore"
             target="_blank"
           >
-            <FaLinkedin className="h-5 w-5 hover:text-blue-400 transition" />
-            </Link>
-            <a
+            <FaLinkedin className="text-xl text-zinc-400 transition-all duration-300 hover:scale-110 hover:text-white" />
+          </Link>
+
+          <a
             href="/resume/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
+          >
+            <Button
+              className="
+                rounded-xl
+                bg-gradient-to-r
+                from-blue-600
+                to-cyan-500
+                px-6
+                text-white
+                shadow-lg
+                shadow-blue-600/20
+                transition-all
+                duration-300
+                hover:scale-105
+                hover:shadow-blue-500/40
+              "
             >
-            <Button className="rounded-full">
-                Resume
+              Resume
             </Button>
-            </a>
+          </a>
+
         </div>
 
-        {/* Mobile Menu Icon */}
-        <button className="md:hidden">
+        {/* Mobile Menu */}
+        <button className="text-zinc-300 transition hover:text-white md:hidden">
           <Menu className="h-6 w-6" />
         </button>
+
       </div>
     </header>
   );
