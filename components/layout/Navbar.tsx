@@ -15,7 +15,16 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[#101112]/70 backdrop-blur-2xl">
+    <header
+  className="
+    fixed inset-x-0 top-0 z-50
+    border-b border-white/10
+    bg-[#101112]/60
+    backdrop-blur-2xl
+    shadow-[0_8px_30px_rgba(0,0,0,0.25)]
+    transition-all duration-300
+  "
+>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
 
         {/* Logo */}
@@ -23,7 +32,7 @@ export default function Navbar() {
           href="/"
           className="text-lg font-semibold tracking-tight text-white transition duration-300 hover:text-zinc-300"
         >
-          Rajyavardhan
+          Reocodes-51
           <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
             .
           </span>

@@ -12,9 +12,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Rajyavardhan Singh Rathore",
-  description: "Aspiring Software Engineer | AI/ML Enthusiast | Full Stack Developer",
+export const metadata: Metadata = {
+  title: "Rajyavardhan Singh Rathore | Software Engineer",
+  description:
+    "Portfolio of Rajyavardhan Singh Rathore showcasing AI, Full Stack Development, and Software Engineering projects.",
+  keywords: [
+    "Rajyavardhan Singh Rathore",
+    "Portfolio",
+    "Software Engineer",
+    "AI Engineer",
+    "Full Stack Developer",
+    "Next.js",
+    "React",
+    "TypeScript",
+  ],
 };
 
 export default function RootLayout({
@@ -24,10 +35,21 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en" className="dark"
-      // className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="en"
+      className={`dark ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="relative min-h-screen overflow-x-hidden bg-[#101112] text-white">
+        {children}
+
+        {/* Noise Overlay */}
+        <div
+          className="pointer-events-none fixed inset-0 z-[9999] opacity-[0.04] mix-blend-soft-light"
+          style={{
+            backgroundImage: "url('/noise.svg')",
+            backgroundRepeat: "repeat",
+          }}
+        />
+      </body>
     </html>
   );
 }
