@@ -1,9 +1,17 @@
+import Navbar from "@/components/layout/Navbar";
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <h1 className="text-center text-5xl font-bold mt-40">
-        Portfolio Coming Soon 🚀
-      </h1>
-    </main>
+    <>
+      <Navbar />
+
+      <main className="pt-20 min-h-screen">
+        <section className="flex h-[80vh] items-center justify-center">
+          <h1 className="text-5xl font-bold">
+            Portfolio Coming Soon 🚀
+          </h1>
+        </section>
+      </main>
+    </>
   );
 }
