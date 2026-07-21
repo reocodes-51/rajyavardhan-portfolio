@@ -18,8 +18,8 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/40 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold tracking-wide">
-          Rajyavardhan
+        <Link href="/" className="text-sm font-medium transition-all duration-300 hover:text-blue-500 hover:-translate-y-0.5">
+          Rajyavardhan<span className="text-blue-500">.</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -41,7 +41,7 @@ export default function Navbar() {
             href="https://github.com/reocodes-51"
             target="_blank"
           >
-            <FaGithub className="h-5 w-5 hover:text-blue-400 transition" />
+            <FaGithub className="h-5 w-5 transition-all duration-300 hover:text-blue-500 hover:scale-110" />
           </Link>
 
           <Link
@@ -50,10 +50,15 @@ export default function Navbar() {
           >
             <FaLinkedin className="h-5 w-5 hover:text-blue-400 transition" />
             </Link>
-
-          <Button>
-            Resume
-          </Button>
+            <a
+            href="/resume/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            <Button className="rounded-full">
+                Resume
+            </Button>
+            </a>
         </div>
 
         {/* Mobile Menu Icon */}
