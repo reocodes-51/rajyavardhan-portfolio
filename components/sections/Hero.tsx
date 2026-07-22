@@ -8,11 +8,13 @@ import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 import Aurora from "@/components/ui/Aurora";
 import Spotlight from "@/components/ui/Spotlight";
+import Particles from "@/components/ui/Particles";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-[#101112]">
     <Aurora />
+    <Particles />
     <Spotlight />
 
       {/* Background Blur */}
