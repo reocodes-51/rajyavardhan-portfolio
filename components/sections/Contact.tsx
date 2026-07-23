@@ -76,7 +76,7 @@ export default function Contact() {
             Contact
           </p>
 
-          <h2 className="mt-5 text-4xl font-bold text-white md:text-6xl">
+          <h2 className="mt-4 text-1xl font-bold text-white md:text-4xl">
             Let's Build Something
             <span className="text-cyan-400"> Amazing Together</span>
           </h2>
@@ -127,7 +127,7 @@ export default function Contact() {
                </div>
 
 
-              <div className="mx-auto w-full max-w-3xl space-y-5">
+              <div className="mx-auto mt-10 w-full max-w-3xl space-y-5">
 
                 {contactInfo.map((item, index) => {
 
@@ -236,138 +236,8 @@ export default function Contact() {
 
               </div>
 
-                          {/* Resume Button */}
+       
 
-            <motion.a
-              href="/resume/resume.pdf"
-              download
-              initial={{
-                opacity: 0,
-                y: 25,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.3,
-                duration: 0.6,
-              }}
-              whileHover={{
-                scale: 1.05,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-              className="
-                group
-                mt-10
-                inline-flex
-                items-center
-                gap-3
-                rounded-2xl
-                bg-gradient-to-r
-                from-cyan-500
-                to-blue-600
-                px-8
-                py-4
-                font-semibold
-                text-white
-                shadow-lg
-                transition-all
-                duration-300
-                hover:shadow-[0_18px_45px_rgba(34,211,238,0.35)]
-              "
-            >
-
-              <motion.div
-                animate={{
-                  y: [0, -3, 0],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 1.5,
-                }}
-              >
-                <Download size={20} />
-              </motion.div>
-
-              Download Resume
-
-            </motion.a>
-
-            {/* CTA Card */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.4,
-                duration: 0.6,
-              }}
-              className="
-                group
-                relative
-                mt-14
-                overflow-hidden
-                rounded-[32px]
-                border
-                border-white/10
-                bg-[#17181C]/80
-                p-8
-                backdrop-blur-2xl
-              "
-            >
-
-              {/* Glow */}
-
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-blue-500/5 opacity-0 transition duration-500 group-hover:opacity-100" />
-
-              <div className="relative z-10">
-
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10">
-
-                  <motion.div
-                    animate={{
-                      rotate: [0, 10, 0, -10, 0],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 6,
-                    }}
-                  >
-                    <Sparkles
-                      size={30}
-                      className="text-cyan-400"
-                    />
-                  </motion.div>
-
-                </div>
-
-                <h3 className="mt-6 text-3xl font-bold text-white">
-                  Let's Create Something Great
-                </h3>
-
-                <p className="mx-auto mt-5 max-w-2xl leading-8 text-zinc-400">
-                  Whether it's an internship, freelance project,
-                  hackathon, startup idea, or exciting collaboration,
-                  I'm always happy to connect with passionate people
-                  and build meaningful products together.
-                </p>
-
-                <div className="mx-auto mt-8 h-px w-52 bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
-
-              </div>
-
-            </motion.div>
 
           </motion.div>
 

@@ -35,8 +35,19 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-white/10 bg-[#0C0D0F]">
-      <div className="mx-auto max-w-7xl px-6 py-5">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#0C0D0F]">
+
+      {/* Background Glow */}
+
+      <div className="pointer-events-none absolute inset-0">
+
+        <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-cyan-500/5 blur-[140px]" />
+
+        <div className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-blue-500/5 blur-[140px]" />
+
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 py-5">
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -48,15 +59,20 @@ export default function Footer() {
 
           {/* Left */}
 
-          <div>
-            <h2 className="text-xl font-bold text-white">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="bg-gradient-to-r from-white via-zinc-100 to-cyan-300 bg-clip-text text-xl font-bold text-transparent">
               Rajyavardhan Singh Rathore
             </h2>
 
             <p className="mt-1 text-sm text-zinc-400">
               Software Engineer • AI Enthusiast • Full Stack Developer
             </p>
-          </div>
+          </motion.div>
 
           {/* Right */}
 
@@ -66,32 +82,51 @@ export default function Footer() {
               const Icon = social.icon;
 
               return (
-                <a
+                <motion.a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#17181C] text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-blue-400"
+                  whileHover={{
+                    y: -5,
+                    scale: 1.08,
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+                  className="group flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#17181C] text-zinc-300 transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.25)]"
                 >
                   <Icon size={19} />
-                </a>
+                </motion.a>
               );
             })}
 
-            <button
+            <motion.button
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700"
+              whileHover={{
+                y: -5,
+                scale: 1.08,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]"
             >
               <ArrowUp size={18} />
-            </button>
+            </motion.button>
 
           </div>
 
         </motion.div>
 
       </div>
+
+      {/* Top Glow Line */}
+
+      <div className="absolute left-1/2 top-0 h-px w-80 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
+
     </footer>
   );
 }
